@@ -1,0 +1,24 @@
+format: jb-book
+
+root: index
+
+parts:
+  - caption: Kitchen Necessities
+    chapters:
+      - file: kitchen_necessities/de_toko/de_toko
+        sections:
+          - file: kitchen_necessities/de_toko/japans
+          - file: kitchen_necessities/de_toko/chinees
+      - file: kitchen_necessities/gear/gear
+  - caption: Deserts
+    chapters:
+      - file: deserts/deserts
+        sections:
+          - file: deserts/banoffee_pie
+  - caption: Inspiration
+    chapters:
+      - file: inspiration/inspiration
+  - caption: Formatting
+    chapters:
+      - file: kitchen_necessities/good_practices
+      - file: kitchen_necessities/python_snippets

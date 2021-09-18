@@ -1,4 +1,4 @@
-# A nerds 🤓 actual cookbook 🍳📕
+# A nerds actual cookbook 🤓🍳📕
 
 **How to cite?** 
 ```

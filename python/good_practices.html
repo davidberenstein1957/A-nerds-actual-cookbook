@@ -1,0 +1,772 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Good Practices &#8212; A nerds🤓 actual cookbook 🍳📕!</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python Snippets" href="python_snippets.html" />
+    <link rel="prev" title="As to why?" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">A nerds🤓 actual cookbook 🍳📕!</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   As to why?
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Python Good Practices
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python_snippets.html">
+     Python Snippets
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/python/good_practices.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/davidberenstein1957/A-nerds-actual-cookbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/davidberenstein1957/A-nerds-actual-cookbook/issues/new?title=Issue%20on%20page%20%2Fpython/good_practices.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-structuring">
+   Project Structuring
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-1-the-classic">
+     Type 1: The Classic
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#type-2-kedro">
+     Type 2: Kedro
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code-formatting">
+   Code formatting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#module-structure">
+     Module structure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-structure">
+     Functions structure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#naming-convention">
+     Naming convention
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-comments">
+     Add comments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indentations-tabs-vs-spaces">
+     Indentations - Tabs vs Spaces
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-tips">
+   Additional tips
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#logging">
+     Logging
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentation">
+     Documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#virtual-environment">
+     Virtual environment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="python-good-practices">
+<h1>Python Good Practices<a class="headerlink" href="#python-good-practices" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Writing code that works now is easy. Writing code that will work tomorrow is hard. Writing code that will work tomorrow and is intuitive enough for anyone to understand and follow — well now we have hit the super hard stuff 😀. Observing several ML engineers and Data scientists working with me, I have noticed nearly all of them have their own unique style of coding. Well, don’t get me wrong, subjectively is a good thing and I think it is what leads to innovations. That said while working in a team or even in open source collaboration, it helps to agree to a certain set of rules. And that’s the idea behind this article, to provide python practitioners with a set of curated guidelines, from which they can pick and choose.</p></li>
+<li><p>With that, let’s cover some of the good practices, which will not only help us to create a working but also a beautiful piece of code 😀</p></li>
+<li><p>To cover this topic, we will go through three parts,</p>
+<ol class="simple">
+<li><p><strong>Project structuring:</strong> ideas on how to organize your code</p></li>
+<li><p><strong>Code formatting:</strong> ideas on how to make your code easy to follow</p></li>
+<li><p><strong>Additional tips:</strong> a few things which will help you in the longer run</p></li>
+</ol>
+</li>
+</ul>
+</div>
+<div class="section" id="project-structuring">
+<h2>Project Structuring<a class="headerlink" href="#project-structuring" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In this part, we will basically talk about some good practices on how the complete python project can be structured. For this, we will look at two different possibilities, which anyone can choose based on how simple or complex their project is going to be.</p></li>
+</ul>
+<div class="section" id="type-1-the-classic">
+<h3>Type 1: The Classic<a class="headerlink" href="#type-1-the-classic" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>This is the most basic format and yet gives the hint of organized structuring. This can be followed when our project consists of only a few scripts. The directory of a sample project could look something like this:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my_project             # Root directory of the project
+├── code               # Source codes
+├── input              # Input files
+├── output             # Output files
+├── config             # Configuration files
+├── notebooks          # Project related Jupyter notebooks (for experimental code)
+├── requirements.txt   # List of external package which are project dependency
+└── README.md          # Project README
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>As obvious from the names, folder <code class="docutils literal notranslate"><span class="pre">code</span></code> contains the individual modules (<code class="docutils literal notranslate"><span class="pre">.py</span></code> files), <code class="docutils literal notranslate"><span class="pre">input</span></code> and <code class="docutils literal notranslate"><span class="pre">output</span></code> contains the input and output files respectively, and <code class="docutils literal notranslate"><span class="pre">notebook</span></code> contains the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> notebooks files we use for experimentation. Finally, <code class="docutils literal notranslate"><span class="pre">config</span></code> folder could contain parameters within <code class="docutils literal notranslate"><span class="pre">yaml</span></code> or <code class="docutils literal notranslate"><span class="pre">json</span></code> or <code class="docutils literal notranslate"><span class="pre">ini</span></code> files and can be accessed by the code module files using [configparser](<a class="reference external" href="https://docs.python.org/3.7/library/configparser.html">configparser — Configuration file parser — Python 3.7.11 documentation</a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> contains a list of all external python packages needed by the project. One advantage of maintaining this file is that all of these packages can be easily installed using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code> command. <em>(No need of manually installing each and every external packages!)</em>. One example <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file is shown below <em>(with <code class="docutils literal notranslate"><span class="pre">package_name==package_version</span></code> format)</em>,</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BeautifulSoup</span><span class="o">==</span><span class="mf">3.2.0</span>
+<span class="n">Django</span><span class="o">==</span><span class="mf">1.3</span>
+<span class="n">Fabric</span><span class="o">==</span><span class="mf">1.2.0</span>
+<span class="n">Jinja2</span><span class="o">==</span><span class="mf">2.5.5</span>
+<span class="n">PyYAML</span><span class="o">==</span><span class="mf">3.09</span>
+<span class="n">Pygments</span><span class="o">==</span><span class="mf">1.4</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Finally, <code class="docutils literal notranslate"><span class="pre">README.MD</span></code> contains the what, why and how of the project, with some dummy codes on how to run the project and sample use cases.</p></li>
+</ul>
+</div>
+<div class="section" id="type-2-kedro">
+<h3>Type 2: Kedro<a class="headerlink" href="#type-2-kedro" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Kedro is not a project structuring strategy, it’s a python tool released by <a class="reference external" href="https://github.com/quantumblacklabs">QuantumBlack Labs</a>, which does project structuring for you 😎. On top of it, they provide a plethora of features to make our project organization and even code execution process super-easy, so that we can truly focus on what matters the most – the experimentations and implementations!</p></li>
+<li><p>Their project structure is shown below. And btw, we can create a blank project by running <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">new</span></code> command <em>(don’t forget to install kedro first by <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">kedro</span></code>)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>get-started         # Parent directory of the template
+├── conf            # Project configuration files
+├── data            # Local project data (not committed to version control)
+├── docs            # Project documentation
+├── logs            # Project output logs (not committed to version control)
+├── notebooks       # Project related Jupyter notebooks (can be used for experimental code before moving the code to src)
+├── README.md       # Project README
+├── setup.cfg       # Configuration options for `pytest` when doing `kedro test` and for the `isort` utility when doing `kedro lint`
+└── src             # Project source code
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>While most of the directories are similar to other types, a few points should be noted. Kedro’s way of grouping different modules is by creating different <em>“pipelines”</em>. These pipelines are present within <code class="docutils literal notranslate"><span class="pre">src</span></code> folder, which in turn contains the module files. Furthermore, they have clear segregation of individual functions which are executed - these are stored within <code class="docutils literal notranslate"><span class="pre">nodes.py</span></code> file, and these functions are later connected with the input and output within <code class="docutils literal notranslate"><span class="pre">pipeline.py</span></code> file <em>(all within the individual pipeline folder)</em>. Kedro also segregates the code and the parameters, by storing the parameters within <code class="docutils literal notranslate"><span class="pre">conf</span></code> folder.</p></li>
+<li><p>Apart from just helping with organizing the project, they also provide options for sequential or parallel executions. We can execute individual functions <em>(within <code class="docutils literal notranslate"><span class="pre">nodes.py</span></code>)</em>, or individual pipelines <em>(which are a combination of functions)</em>, or the complete project at one go. We can also create doc of the complete project or compile and package the project as a python <code class="docutils literal notranslate"><span class="pre">.whl</span></code> file, with just a single command run. For more details, and believe me we have just touched the surface, refer to their official <a class="reference external" href="https://kedro.readthedocs.io/en/stable/index.html">documentation</a>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="code-formatting">
+<h2>Code formatting<a class="headerlink" href="#code-formatting" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>With a top-down approach, let’s first have a look at a <em>neat</em> piece of code. We will discuss individual aspects of the code in more detail later. For now, just assume if someone asks you to do some scripting, what an ideal piece of code file should look like.</p></li>
+<li><p>Following code is take from <code class="docutils literal notranslate"><span class="pre">csv_column_operations.py</span></code> module file. It was generated for the prompt: <em>“write a function which takes csv file as input and returns the sum of a column”</em>.</p></li>
+</ul>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Return sum of a column from CSV file</span>
+
+<span class="sd">A module with &quot;perform_column_sum&quot; main function that computes and return sum </span>
+<span class="sd">of an user defined numerical column from an csv file passed as pandas dataframe</span>
+
+<span class="sd">Author: Mohit Mayank &lt;mohitmayank1@gmail.com&gt;</span>
+
+<span class="sd">Created: 4th August, 2021</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># imports</span>
+<span class="kn">import</span> <span class="nn">sys</span>          <span class="c1"># to exit execution</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># to handle csv files</span>
+
+<span class="c1"># modules</span>
+<span class="k">def</span> <span class="nf">perform_column_sum</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span> <span class="n">column_to_perform_operation_on</span><span class="p">,</span> <span class="n">operation_to_perform</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Performs numerical operation over a column of pandas dataframe</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -------------</span>
+<span class="sd">    csv_file: pandas.DataFrame</span>
+<span class="sd">        the csv file which contains the column on which operation is to be performed</span>
+
+<span class="sd">    column_to_perform_operation_on: string</span>
+<span class="sd">        the column name (must be present in the csv file)</span>
+
+<span class="sd">    operation_to_perform: string</span>
+<span class="sd">        which operation to be performed on the column. Supported: [&#39;sum&#39;]</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    --------</span>
+<span class="sd">    column_operation_result: numeric</span>
+<span class="sd">        the result after applying numeric operation on csv column</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Step 1: data check and break</span>
+    <span class="c1"># check 1: column should be present in the csv_file</span>
+    <span class="n">check_flag_col_presence</span> <span class="o">=</span> <span class="n">column_to_perform_operation_on</span> <span class="ow">in</span> <span class="n">csv_file</span><span class="o">.</span><span class="n">columns</span>
+    <span class="c1"># break the code if incorrect data is provided</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">check_flag_col_presence</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Column </span><span class="si">{</span><span class="n">column_to_perform_operation_on</span><span class="si">}</span><span class="s2"> is absent from the csv_file! Breaking code!&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+    <span class="c1"># check 2: all values in the column should be of type numeric</span>
+    <span class="n">check_flag_data_type</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">csv_file</span><span class="p">[</span><span class="n">column_to_perform_operation_on</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="c1"># break the code if incorrect data is provided</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">check_flag_data_type</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;One or more values in column </span><span class="si">{</span><span class="n">column_to_perform_operation_on</span><span class="si">}</span><span class="s2"> is not numeric! Breaking code!&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+    <span class="c1"># Step 2: extract the column</span>
+    <span class="n">column_data</span> <span class="o">=</span> <span class="n">csv_file</span><span class="p">[</span><span class="n">column_to_perform_operation_on</span><span class="p">]</span>
+
+    <span class="c1"># Step 3: Perform the operation</span>
+    <span class="n">column_operation_result</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">operation_to_perform</span> <span class="o">==</span> <span class="s1">&#39;sum&#39;</span><span class="p">:</span>
+        <span class="n">column_operation_result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">column_data</span><span class="p">)</span>
+
+    <span class="c1"># Step 4: return the result</span>
+    <span class="k">return</span> <span class="n">column_operation_result</span>
+
+<span class="c1"># run when file is directly executed </span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># create a dummy dataframe</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]})</span>
+    <span class="c1"># call the function</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">perform_column_sum</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+    <span class="c1"># match if the answer is correct</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">answer</span><span class="o">==</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some might argue why do such an overkill for a simple piece of code. Note, it’s a dummy example. In real life, you will develop more complex pieces of codes and hence it become quite important that we understand the gist.</p>
+</div>
+<ul class="simple">
+<li><p>Now let’s take a deeper dive into the individual aspect of the above code.</p></li>
+</ul>
+<div class="section" id="module-structure">
+<h3>Module structure<a class="headerlink" href="#module-structure" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>A module is a python file with <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension that contains the executable code or functions or classes, etc.</p></li>
+<li><p>Usually, we start the module with module definition, which is an area where we provide some basic details of the module. We can do so using the following template <em>(and it can be easily compared to a real code shown above)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;&lt;Short description&gt;</span>
+
+<span class="sd">&lt;Long description&gt;</span>
+
+<span class="sd">Author: &lt;Name&gt; &lt;email&gt;</span>
+
+<span class="sd">Created: &lt;date&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Next, we should clearly segregate the parts of the module such as imports, code area, etc using comment lines.</p></li>
+<li><p>Finally, at the bottom, we could include some examples on how to run the code. Including these scripts within <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">'__main__':</span></code> makes sure that they only run when the file is directly executed <em>(like <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">csv_column_operations.py</span></code>)</em>. So these pieces of code doesn’t run when you say import the module in another script.</p></li>
+</ul>
+</div>
+<div class="section" id="functions-structure">
+<h3>Functions structure<a class="headerlink" href="#functions-structure" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Functions are the basic block of code that performs a specific task. A module consists of several functions. To inform the user what a particular block of code does, we start the function with a function definition. A sample template is provided below,</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Description</span>
+
+<span class="sd">Paramters</span>
+<span class="sd">---------</span>
+<span class="sd">&lt;parameter_1&gt;: &lt;data_type&gt;</span>
+<span class="sd">    &lt;parameter_1_description&gt;</span>
+
+<span class="sd">Returns</span>
+<span class="sd">---------</span>
+<span class="sd">&lt;output_1&gt;: &lt;data_type&gt;</span>
+<span class="sd">    &lt;output_1_description&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>After this, we can start adding the relevant code lines. Make sure to separate different logical blocks of code within the functions using comments.</p></li>
+<li><p>One important thing to handle at the start of the coding section is to check the parameters and input data for some data type or data content related basic issues. A majority of code break happens due to silly mistakes like when someone provides wrong input, in which case we should print or log warning message and gracefully exit. The above same code contains two such preliminary but important checks inside the step 1 section.</p></li>
+</ul>
+</div>
+<div class="section" id="naming-convention">
+<h3>Naming convention<a class="headerlink" href="#naming-convention" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>There are several formatting conventions that we can follow, like <a class="reference external" href="https://en.wikipedia.org/wiki/Camel_case">Camel Case</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Snake_case">Snake case</a>, etc. It’s quite subjective and depends on the developer. Below are some examples of naming different entities of a python code <em>(taken from PIP8 conventions  - with some modifications)</em> 😇,</p>
+<ul>
+<li><p><strong>Module name:</strong> Modules should have short, all-lowercase names (ex: <code class="docutils literal notranslate"><span class="pre">csv_column_operations.py</span></code>)</p></li>
+<li><p><strong>Function or method name:</strong> Function names should be lowercase, with words separated by underscores as necessary to improve readability. Also, don’t forget to add your verbs! (ex: <code class="docutils literal notranslate"><span class="pre">perform_column_sum()</span></code>)</p></li>
+<li><p><strong>Variable name:</strong> Similar to function name but without the verbs! (ex: <code class="docutils literal notranslate"><span class="pre">list_of_news</span></code>)</p></li>
+<li><p><strong>Class name:</strong> Class names should normally use the CapWords convention. (ex: <code class="docutils literal notranslate"><span class="pre">FindMax</span></code>)</p></li>
+<li><p><strong>Constant name:</strong> Constants are usually defined on a module level and written in all capital letters with underscores separating words. (ex: <code class="docutils literal notranslate"><span class="pre">MAX_OVERFLOW</span></code> and <code class="docutils literal notranslate"><span class="pre">TOTAL</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="add-comments">
+<h3>Add comments<a class="headerlink" href="#add-comments" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>PEP-8 defines three types of comments,</p>
+<ul>
+<li><p><strong>Block comments:</strong> which is written for a single or a collection of code lines. This can be done either when you want to explain a set of lines or just want to segregate code. In the above example, you can see <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Step</span> <span class="pre">{1,</span> <span class="pre">2,</span> <span class="pre">3}</span></code> used as segregation comment and <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">run</span> <span class="pre">when</span> <span class="pre">file</span> <span class="pre">is</span> <span class="pre">directly</span> <span class="pre">executed</span></code> used to explain a set of code lines.</p></li>
+<li><p><strong>Inline comments:</strong> which are added on the same line as the code. For example, see how <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">to</span> <span class="pre">handle</span> <span class="pre">csv</span> <span class="pre">files</span></code> is used to justify the pandas package import. PEP-8 suggests using inline comments sparingly.</p></li>
+<li><p><strong>Documentation Strings:</strong> these are used for documentation for module, functions or classes. PEP-257 suggests using multiline comment for docstring <em>(using “””)</em>. An example of module and function docstrings <em>(short for documentation strings)</em> is provided in the sample code above.</p></li>
+</ul>
+</li>
+<li><p>We should be as descriptive in our comments as possible. Try to separate functional sections of your code, provide explanations for complex code lines, provide details about the input/output of functions, etc. How do you know you have enough comments? - If you think someone with half your expertise can understand the code without calling you middle of the night! 😤</p></li>
+</ul>
+</div>
+<div class="section" id="indentations-tabs-vs-spaces">
+<h3>Indentations - Tabs vs Spaces<a class="headerlink" href="#indentations-tabs-vs-spaces" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Frankly, I am only going to touch this topic with a long stick 🧹. There are already several <a class="reference external" href="https://softwareengineering.stackexchange.com/questions/57/tabs-versus-spaces-what-is-the-proper-indentation-character-for-everything-in-e">articles</a>, <a class="reference external" href="https://www.reddit.com/r/learnpython/comments/8cann8/tabs_vs_spaces_i_dont_get_it/">reddit threads</a> and even tv series (Silicon valley 📺) where this topic has been discussed a lot!</p></li>
+<li><p>Want my 2 cents? Pick any modern IDE <em>(like VSCode, Sublime, etc)</em>, set indentations to tabs, and set 1 tab = 4 spaces. Done 😏</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="additional-tips">
+<h2>Additional tips<a class="headerlink" href="#additional-tips" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Till now we have discussed how to either structure the project or format the code. Next, we will cover a generic set of good practices which will save you some pain down the line 😬</p></li>
+</ul>
+<div class="section" id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Instead of printing statements in the console which is temporary (do a <code class="docutils literal notranslate"><span class="pre">cls</span></code> and poof it’s gone💨), a better idea is to save these statements in a separate file, which you can always go back and refer to. This is logging 📜</p></li>
+<li><p>Python provides an <a class="reference external" href="https://docs.python.org/3.7/library/logging.html">inbuilt function</a> for logging. By referring to the official <a class="reference external" href="https://docs.python.org/3.7/howto/logging.html">how to</a>, logging to a file is super easy,</p></li>
+</ul>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># import</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="c1"># config the logging behavior</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example.log&#39;</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="c1"># some sample log messages</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;This message should go to the log file&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;So should this&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;And this, too&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><p>Note, there is a hierarchical levelling of logs to segregate different severity of logs. In the example shown above, the <code class="docutils literal notranslate"><span class="pre">level</span></code> parameter denotes the minimal level that is tracked and hence saved to the file. As per the official <a class="reference external" href="https://docs.python.org/3.7/howto/logging.html">how to</a>, these are the different logging levels with some details about when to use which <em>(in increasing order of severity)</em>,</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Level</p></th>
+<th class="head"><p>When it’s used</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DEBUG</p></td>
+<td><p>Detailed information, typically of interest only when diagnosing problems.</p></td>
+</tr>
+<tr class="row-odd"><td><p>INFO</p></td>
+<td><p>Confirmation that things are working as expected.</p></td>
+</tr>
+<tr class="row-even"><td><p>WARNING</p></td>
+<td><p>An indication that something unexpected happened, or indicative of some problem in the near future (e.g. ‘disk space low’). The software is still working as expected.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ERROR</p></td>
+<td><p>Due to a more serious problem, the software has not been able to perform some function.</p></td>
+</tr>
+<tr class="row-even"><td><p>CRITICAL</p></td>
+<td><p>A serious error, indicating that the program itself may be unable to continue running.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Documentation of the code is an absolute must, if you are planning to maintain the code or hand it over to someone else in the foreseeable future. Just ask any developer about their excitement on finding a ready-made and well curated documentation for a package they are planning to use! On the other hand, it looks quite difficult to create one yourself, isn’t it? I mean, look at the beautiful docs of <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier">sklearn</a> or <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html">pandas</a>. 😮</p></li>
+<li><p>Well, sorry for the scare there, but actually it’s quite simple 😉. Remember all the function and module docstring and the formatting we followed before? As it turns out, we can leverage many open source tools like <a class="reference external" href="https://docs.python.org/3/library/pydoc.html">pydoc</a> and <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">sphinx</a> to create full-fledged HTML documentations! Going into practical details is out of scope of this article, but it is fairly easy to follow the “how to” steps of both the packages and get your doc ready.</p></li>
+<li><p>One last thing, if you are using Kedro, this process is even simpler. All you have to do is run one command - <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">build-docs</span> <span class="pre">--open</span></code> to create the documentation and automatically open it in your default browser!</p></li>
+</ul>
+</div>
+<div class="section" id="virtual-environment">
+<h3>Virtual environment<a class="headerlink" href="#virtual-environment" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Virtual environments (VE) can be thought of as the local copy of python environment, created specifically for a project. This local copy is like a blank slate, as any required package can be installed here separately. It is extremely important to create a new virtual environment for any new project, because,</p>
+<ul>
+<li><p>each project has its own dependency tree <em>(one package with a specific version needs another package to run, with its own specific version)</em></p></li>
+<li><p>while developing a project we may need to downgrade or upgrade a package, which if done on the base python environment, will affect your system!</p></li>
+<li><p>hence, a separate copy of python (VE), where you install whatever you want, seems to be the most logical solution.</p></li>
+</ul>
+</li>
+<li><p>Using VE basically requires two steps,</p>
+<ul>
+<li><p><strong>Create a VE:</strong> this can be done by running command <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">tutorial-env</span></code> at the project root directory. <em>(note, <code class="docutils literal notranslate"><span class="pre">tutorial-env</span></code> is the name of the VE, you can use rename it to anything)</em></p></li>
+<li><p><strong>Activate VE:</strong> this can be done by running command <code class="docutils literal notranslate"><span class="pre">tutorial-env\Scripts\activate.bat</span></code> on Windows and <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">tutorial-env/bin/activate</span></code> on Unix or MacOS.</p></li>
+</ul>
+</li>
+<li><p>And that’s it! Install, uninstall, upgrade or downgrade whatever you want!</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember to switch to another VE when you start working on another project or/and to deactivate the VE when you want to move to base VE.</p>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8 Style Guide for Python Code</a></p></li>
+<li><p><a class="reference external" href="https://kedro.readthedocs.io/en/stable/index.html">Kedro</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/">Python 3 documentation</a></p></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../index.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">As to why?</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="python_snippets.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Python Snippets</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By David Berenstein<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
